@@ -1,0 +1,175 @@
+{% extends 'patient/patientbase.html' %}
+
+
+{% block pt %}
+
+<!-- display doctor details -->
+<div class="container dr-pro">
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="card dr-inner">
+                <div class="card-header">
+                    <h4 align="center">Patient Profile</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="first_name">First Name</label>
+                                <input type="text" class="form-control" id="first_name" value="{{usr.first_name}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" class="form-control" id="last_name" value="{{usr.last_name}}"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" value="{{usr.email}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" value="{{usr.username}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" id="email" value="{{usr.state}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="district">District</label>
+                                <input type="text" class="form-control" id="username" value="{{usr.district}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <input type="text" class="form-control" id="email" value="{{usr.gender}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dob">DOB</label>
+                                <input type="text" class="form-control" id="username" value="{{usr.dob}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Are you Diabetic patient ?</label>
+                                <input type="text" class="form-control" id="email" value="{{usr1.is_diabetic}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dob">Are you Asthma patient ?</label>
+                                <input type="text" class="form-control" id="username" value="{{usr1.is_asthma}}"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Are you Hypertensed ?</label>
+                                <input type="text" class="form-control" id="email" value="{{usr1.is_hypertension}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dob">Are you Stroke?</label>
+                                <input type="text" class="form-control" id="username" value="{{usr1.is_stroke}}"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Weight</label>
+                                <input type="text" class="form-control" id="email" value="{{usr1.weight}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dob">Height</label>
+                                <input type="text" class="form-control" id="username" value="{{usr1.height}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Are you Alcoholic ?</label>
+                                <input type="text" class="form-control" id="email" value="{{usr1.is_alcoholic}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dob">blood group</label>
+                                <input type="text" class="form-control" id="username" value="{{usr1.blood_group}}"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Alergetic drugs</label>
+                                <input type="text" class="form-control" id="email" value="{{usr1.alergetic_drugs}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dob">Did you take 2 COVID vaccine</label>
+                                <input type="text" class="form-control" id="username" value="{{usr1.covid_vacciantion}}"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-header" align="center">
+                    <a href="{% url 'patalldetailsupdate' %}"><button class="btn btn-primary">Update
+                            Profile</button></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock pt %}

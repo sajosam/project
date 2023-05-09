@@ -1,0 +1,44 @@
+{% extends ext %}
+
+{% load static %}
+
+{% block dr %}
+
+<div id="table-container">
+
+
+    {% if data %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Date</th>
+                <th scope="col">FN/AN/FD</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{d.email}}</td>
+                <td>{{d.leaveDate}}</td>
+                <td>{{d.leaveDiv}}</td>
+                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
+                        disabled>{{d.leaveReason}}</textarea></td>
+                <td>{{d.leaveStatus}}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% else %}
+    <h4>Currently You have no Leave Application</h4>
+    {% endif %}
+
+</div>
+
+
+
+{% endblock dr %}

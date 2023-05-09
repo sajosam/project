@@ -1,0 +1,110 @@
+{% extends 'patient/patientbase.html' %}
+
+{% load static %}
+
+
+
+{% block pt %}
+
+<section class="w3l-hotair-form">
+    <div class="container">
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <form action="{% url 'patalldetailsupdate' %}" method="post" id="logform" name="logform">
+                        <h2>Basic Health Details</h2><br>
+                        {% include 'include/alerts.html' %}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="">Are you Diabetic patient ?</label>
+                            {{usr.is_diabetic}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Asthma patient ?</label>
+                            {{usr.is_asthma}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Hypertensed ?</label>
+                            {{usr.is_hypertension}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Stroke?</label>
+                            {{usr.is_stroke}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify the weight</label>
+                            {{usr.weight}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify the height</label>
+                            {{usr.height}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Alcoholic ?</label>
+                            {{usr.is_alcoholic}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify your blood group</label>
+                            {{usr.blood_group}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Did you take 2 COVID vaccine</label>
+                            {{usr.covid_vacciantion}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify the alergetic drugs (if any)</label>
+                            {{usr.alergetic_drugs}}
+                        </div>
+
+                        <div class="form-group">
+                            {{usr1.first_name.label}}
+                            {{usr1.first_name}}
+                        </div>
+                        <div class="form-group">
+                            {{usr1.last_name.label}}
+                            {{usr1.last_name}}
+                        </div>
+                        <div class="form-group">
+                            {{usr1.state.label}}
+                            {{usr1.state}}
+                        </div>
+                        <div class="form-group">
+                            {{usr1.district.label}}
+                            {{usr1.district}}
+                        </div>
+                        <div class="form-group">
+                            {{usr1.contact.label}}
+                            {{usr1.contact}}
+                        </div>
+                        <div class="form-group">
+                            {{usr1.usr_img.label}}
+                            {{usr1.usr_img}}
+                        </div>
+                        <div class="form-group">
+                            {{usr1.dob.label}}
+                            {{usr1.dob}}
+                        </div>
+                        <div class="form-group">
+                            {{usr1.gender.label}}
+                            {{usr1.gender}}
+                        </div>
+
+                        <button class="btn" type="submit">Save profile</button>
+                    </form>
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="{% static 'img/banner/d (1).png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/d (4).png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/d (5).png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/d (12).png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/d (3).gif' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/5.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock pt %}

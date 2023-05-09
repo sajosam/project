@@ -1,0 +1,59 @@
+{% extends 'lab/labbase.html' %}
+
+
+{% block dr %}
+
+
+
+<div id="customers">
+    {% include 'include/alerts.html' %}
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">patient Name</th>
+                <th scope="col">patient email</th>
+                <th scope="col">Time</th>
+                <th scope="col">Status</th>
+                <th scope="col">Lab Type</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in da %}
+            <tr>
+                <td>{{d.prescription_id.appoint_id.appo_date}}</td>
+                <td>{{d.prescription_id.appoint_id.user_id.first_name}}</td>
+                <td>{{d.prescription_id.appoint_id.user_id.email}}</td>
+                <td>{{d.prescription_id.appoint_id.appo_time}}</td>
+                <td>{{d.status}}</td>
+                <td>{{d.prescription_id.lab_report}}</td>
+                <td>
+
+                    {% if d.report %}
+                    <a name="" id="" class="btn btn-info" href="{{d.report.url}}" download="{{report}}{{d.id}}"
+                        role="button">Download
+                        Report</a>
+                    {% else %}
+                    <a name="" id="" class="btn btn-info" href="{% url 'addreport' d.id %}" role="button">Add Report</a>
+
+                    {% endif %}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+{% endblock dr %}

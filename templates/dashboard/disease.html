@@ -1,0 +1,115 @@
+{% extends 'dashboard/dashbase.html' %}
+
+
+{% block dash %}
+
+
+<center class="row">
+    <h1 style="color: #05081d;">{{spec}} Department Vizualization playground</h1>
+</center>
+<hr />
+<div class="row">
+    <div>
+        <canvas id="groupedchart"></canvas>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+    var endpoint = 'http://127.0.0.1:8000/dashboard/api/disease';
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function (data) {
+            groupedchart(data, 'groupedchart');
+            // groupedchart(data, 'groupedline', 'line');
+            console.log("drawing");
+        },
+        error: function (error_data) {
+            console.log(error_data);
+        }
+    })
+
+
+
+
+    function groupedchart(data, id) {
+        var ctx = document.getElementById(id).getContext("2d");
+        var datasets = []; // Define the datasets array here
+
+        // Iterate over the diseases in the data
+        for (var i = 0; i < data.disease.length; i++) {
+            // Extract the counts for the disease
+            var counts = [];
+            for (var j = 0; j < data.month.length; j++) {
+                var count = data.result[i][data.month[j]];
+                counts.push(count);
+            }
+
+            // Add the dataset to the array
+            datasets.push({
+                label: data.disease[i],
+                backgroundColor: getRandomColor(),
+                data: counts
+            });
+        }
+
+        var chartData = {
+            labels: data.month,
+            datasets: datasets
+        };
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'black',
+                            fontSize: 12,
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Count',
+                            fontColor: 'black',
+                            fontSize: 12,
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'black',
+                            fontSize: 12,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month - 2022',
+                            fontColor: 'black',
+                            fontSize: 12,
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+</body>
+
+
+{% endblock dash %}
